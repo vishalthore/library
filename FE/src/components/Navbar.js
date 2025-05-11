@@ -20,8 +20,8 @@ function Navbar() {
         </Typography>
         {isAuthenticated ? (
           <Box>
-            <Button color="inherit" component={Link} to="/">Books</Button>
-            <Button color="inherit" component={Link} to="/subjects">Subjects</Button>
+            <Button color="inherit" component={Link} to="/">Subjects</Button>
+            <Button color="inherit" component={Link} to="/Books">Books</Button>
             <Button color="inherit" component={Link} to="/add-book">Add Book</Button>
             <Button color="inherit" component={Link} to="/add-subject">Add Subject</Button>
             <Button color="inherit" onClick={handleLogout}>Logout</Button>

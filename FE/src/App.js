@@ -22,12 +22,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={
             <PrivateRoute>
-              <Books />
+              <Subjects />
             </PrivateRoute>
           } />
-          <Route path="/subjects" element={
+          <Route path="/Books" element={
             <PrivateRoute>
-              <Subjects />
+              <Books />
             </PrivateRoute>
           } />
           <Route path="/add-book" element={

@@ -56,4 +56,31 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Update a book
+router.put('/:id', async (req, res) => {
+  try {
+    const book = await Book.findByPk(req.params.id);
+    if (!book) {
+      return res.status(404).json({ message: 'Book not found' });
+    }
+
+    await book.update({
+      title: req.body.title,
+      author: req.body.author,
+      subjectId: req.body.SubjectId,
+      isbn: req.body.isbn,
+      publishedYear: req.body.publishedYear,
+      quantity: req.body.quantity
+    });
+
+    const updatedBook = await Book.findByPk(req.params.id, {
+      include: [Subject]
+    });
+
+    res.json(updatedBook);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 module.exports = router;
